@@ -1,0 +1,12 @@
+{
+  "node": "cli",
+  "summary": "Click CLI shipped: `transcriber` group (--version, -h) with transcribe (all spec'd options incl. multi -f, -o, -m with unknown-model hint, --engine/--task/--device/--compute-type choices, tri-state --vad/--word-timestamps, -r, --overwrite, --stdout single-input+single-format with exact rendered output and exit-2 misuse guard, -q, -v), env-then-flags config precedence via from_env().replace(), rich transient Progress off when quiet/non-TTY/--stdout, errors always on stderr, post-batch rich summary table, exit codes 0/1/2; plus formats/models/info tables, __main__.py, and finalized package __init__ re-exporting the public API with __all__. 41 offline CliRunner tests (click 8.4: separate stdout/stderr) cover version/help, table sync with registries, exact output contents, FAIL isolation exit 1, bad format/env/flag exit 2, env-vs-flag precedence, quiet/verbose, python -m, and subprocess-verified lazy import (no faster_whisper/click on `import transcriber`). Full repo suite: 510 passed.",
+  "files": [
+    "src/transcriber/cli.py",
+    "src/transcriber/__main__.py",
+    "src/transcriber/__init__.py",
+    "tests/test_cli.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/cli.py src/transcriber/__main__.py src/transcriber/__init__.py tests/test_cli.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_cli.py && .venv/bin/python -m transcriber --version",
+  "gate_exit": 0
+}
