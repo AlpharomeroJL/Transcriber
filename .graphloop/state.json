@@ -1,6 +1,6 @@
 {
   "campaign": "transcriber-1.0",
-  "updated": "2026-08-22T12:08:41Z",
+  "updated": "2026-08-22T12:13:49Z",
   "nodes": {
     "bootstrap": {
       "status": "done",
@@ -14,8 +14,14 @@
       "reason": null
     },
     "scaffold": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": ".venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src && .venv/bin/python -c \"import transcriber; print(transcriber.__version__)\"",
+          "exit": 0,
+          "utc": "2026-08-22T12:13:49Z"
+        }
+      ],
       "reason": null
     },
     "core": {
@@ -92,6 +98,14 @@
       ],
       "utc": "2026-08-22T12:08:41Z",
       "note": "single-writer bootstrap: engine, graph, plan, venv"
+    },
+    {
+      "n": 2,
+      "nodes": [
+        "scaffold"
+      ],
+      "utc": "2026-08-22T12:13:49Z",
+      "note": "package scaffold: pyproject/QA config/skeleton, editable install"
     }
   ]
 }

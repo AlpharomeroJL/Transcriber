@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "transcriber-cli"
+dynamic = ["version"]
+description = "Local-first, privacy-preserving transcription of audio and video: a polished CLI and typed Python library."
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Josef D. Long" }]
+keywords = [
+  "transcription",
+  "speech-to-text",
+  "speech-recognition",
+  "whisper",
+  "faster-whisper",
+  "subtitles",
+  "srt",
+  "vtt",
+  "audio",
+  "video",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+  "Typing :: Typed",
+]
+dependencies = [
+  "faster-whisper>=1.1,<2",
+  "click>=8.1",
+  "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "mypy",
+  "pytest",
+  "pytest-cov",
+  "build",
+  "twine",
+]
+
+[project.scripts]
+transcriber = "transcriber.cli:main"
+
+[tool.hatch.version]
+path = "src/transcriber/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/transcriber"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# .graphloop holds the campaign scheduling machinery, not product code.
+extend-exclude = [".graphloop"]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "W",   # pycodestyle warnings
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "SIM", # flake8-simplify
+  "RUF", # ruff-specific
+]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+# faster-whisper ships no type stubs; keep the ignore scoped instead of global.
+[[tool.mypy.overrides]]
+module = "faster_whisper.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "av.*"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["transcriber"]
+
+[tool.coverage.report]
+show_missing = true

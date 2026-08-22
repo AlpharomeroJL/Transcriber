@@ -1,0 +1,15 @@
+{
+  "node": "scaffold",
+  "summary": "Package scaffold: hatchling pyproject for transcriber-cli 1.0.0 (version single-sourced from src/transcriber/__init__.py, PEP 639 MIT license + LICENSE, console script transcriber.cli:main, no readme ref yet), ruff/mypy-strict/pytest/coverage config, typed importable skeleton with py.typed, tests scaffold with repo_root fixture, Makefile and .editorconfig; editable install done so `import transcriber` resolves for later lanes. .gitignore already contained every required entry so it was left unchanged; .graphloop is excluded from ruff scope as campaign machinery, not product code.",
+  "files": [
+    "pyproject.toml",
+    "Makefile",
+    ".editorconfig",
+    "src/transcriber/__init__.py",
+    "src/transcriber/py.typed",
+    "tests/__init__.py",
+    "tests/conftest.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src && .venv/bin/python -c \"import transcriber; print(transcriber.__version__)\"",
+  "gate_exit": 0
+}
