@@ -1,0 +1,7 @@
+{
+  "node": "ci",
+  "summary": "GitHub Actions CI: .github/workflows/ci.yml (name CI; push on main + claude/**, pull_request; per-ref concurrency with cancel-in-progress; lint job on py3.12 running ruff check / ruff format --check / mypy src; test matrix 3.10/3.12/3.13 running pytest --cov=transcriber --cov-fail-under=85; build job needing lint+test running python -m build + twine check with dist uploaded via upload-artifact@v4; checkout@v4/setup-python@v5 pinned, pip cache keyed on pyproject.toml) plus .github/dependabot.yml with weekly pip and github-actions updates. YAML parse and structural spec checks pass; the exact CI commands pass locally (coverage 98.55%, 510 tests).",
+  "files": [".github/workflows/ci.yml", ".github/dependabot.yml"],
+  "gate_cmd": ".venv/bin/python -c \"import yaml,sys; yaml.safe_load(open('.github/workflows/ci.yml'))\" && .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src && .venv/bin/pytest",
+  "gate_exit": 0
+}

@@ -1,6 +1,6 @@
 {
   "campaign": "transcriber-1.0",
-  "updated": "2026-08-22T12:57:57Z",
+  "updated": "2026-08-22T13:11:40Z",
   "nodes": {
     "bootstrap": {
       "status": "done",
@@ -102,18 +102,41 @@
       "reason": null
     },
     "docs": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": ".venv/bin/python scripts/check_docs.py && .venv/bin/ruff check scripts/check_docs.py",
+          "exit": 0,
+          "utc": "2026-08-22T13:11:20Z"
+        }
+      ],
       "reason": null
     },
     "ci": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": ".venv/bin/python -c \"import yaml,sys; yaml.safe_load(open('.github/workflows/ci.yml'))\" && .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src && .venv/bin/pytest",
+          "exit": 1,
+          "utc": "2026-08-22T13:11:21Z"
+        },
+        {
+          "cmd": ".venv/bin/python -c \"import yaml,sys; yaml.safe_load(open('.github/workflows/ci.yml'))\" && .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src && .venv/bin/pytest",
+          "exit": 0,
+          "utc": "2026-08-22T13:11:40Z"
+        }
+      ],
       "reason": null
     },
     "integ": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": ".venv/bin/ruff check tests/test_integration.py scripts/make_fixture.py && .venv/bin/pytest tests/test_integration.py",
+          "exit": 0,
+          "utc": "2026-08-22T13:11:22Z"
+        }
+      ],
       "reason": null
     },
     "pack": {
@@ -183,6 +206,16 @@
       ],
       "utc": "2026-08-22T12:57:57Z",
       "note": "click CLI, rich progress, exit-code contract, public API finalised"
+    },
+    {
+      "n": 7,
+      "nodes": [
+        "docs",
+        "ci",
+        "integ"
+      ],
+      "utc": "2026-08-22T13:11:40Z",
+      "note": "docs w/ mechanical check; Actions CI; e2e integration; merge fix: ruff-format README code fence"
     }
   ]
 }

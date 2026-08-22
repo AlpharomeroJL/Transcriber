@@ -1,0 +1,11 @@
+# Weekly dependency update PRs for Python packages and pinned GitHub Actions.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly

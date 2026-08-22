@@ -1,0 +1,13 @@
+{
+  "node": "integ",
+  "summary": "End-to-end integration suite over committed synthetic WAV fixtures: stdlib-only deterministic generator (scripts/make_fixture.py) producing tone/speechlike/silence 16kHz mono 16-bit fixtures (byte-reproducibility proven by test), plus 17 offline tests exercising the real CLI surface — all-formats batch into an output dir with JSON Transcript.from_dict round-trip and SRT/VTT/TSV structure regexes, FAIL_case batch isolation (exit 1, good files still written), byte-identical rerun determinism, and smoke-marked python -m transcriber subprocess tests (--version and --stdout transcription with clean streams). Gate green in ~0.6s; full 527-test suite stays green.",
+  "files": [
+    "scripts/make_fixture.py",
+    "tests/test_integration.py",
+    "tests/fixtures/tone.wav",
+    "tests/fixtures/speechlike.wav",
+    "tests/fixtures/silence.wav"
+  ],
+  "gate_cmd": ".venv/bin/ruff check tests/test_integration.py scripts/make_fixture.py && .venv/bin/pytest tests/test_integration.py",
+  "gate_exit": 0
+}

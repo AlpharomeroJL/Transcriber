@@ -1,0 +1,12 @@
+{
+  "node": "docs",
+  "summary": "Production docs: README (badges, features, source install w/ pipx + no-ffmpeg note, quickstart incl. --stdout/env vars, model & format tables, Python API with batch events, all 11 TRANSCRIBER_* vars, how-it-works, make targets, graph-loop pointer, MIT), CONTRIBUTING (setup, targets, style, offline-deterministic test rules, gates/CI, commits), Keep-a-Changelog CHANGELOG for 1.0.0, and stdlib-only scripts/check_docs.py that introspects the click group/formats/config fields/__version__ and fails listing anything the docs miss.",
+  "files": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "scripts/check_docs.py"
+  ],
+  "gate_cmd": ".venv/bin/python scripts/check_docs.py && .venv/bin/ruff check scripts/check_docs.py",
+  "gate_exit": 0
+}
