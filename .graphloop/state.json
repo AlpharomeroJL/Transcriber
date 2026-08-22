@@ -1,0 +1,97 @@
+{
+  "campaign": "transcriber-1.0",
+  "updated": "2026-08-22T12:08:41Z",
+  "nodes": {
+    "bootstrap": {
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": "python3 .graphloop/graphloop.py check",
+          "exit": 0,
+          "utc": "2026-08-22T12:08:41Z"
+        }
+      ],
+      "reason": null
+    },
+    "scaffold": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "core": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "confer": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "audio": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "formats": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "engines": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "pipeline": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "cli": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "docs": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "ci": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "integ": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "pack": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "review": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    },
+    "gauntlet": {
+      "status": "pending",
+      "evidence": [],
+      "reason": null
+    }
+  },
+  "waves": [
+    {
+      "n": 1,
+      "nodes": [
+        "bootstrap"
+      ],
+      "utc": "2026-08-22T12:08:41Z",
+      "note": "single-writer bootstrap: engine, graph, plan, venv"
+    }
+  ]
+}
