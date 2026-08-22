@@ -1,0 +1,13 @@
+{
+  "node": "engines",
+  "summary": "Engine abstraction shipped: TranscriptionEngine ABC (ClassVar name, transcribe, no-op close), deterministic MockEngine (size-derived duration, FAIL-stem error injection, fixed-segment override, synthetic word timestamps), lazy-importing FasterWhisperEngine (per-(model,device,compute_type) model cache, config->transcribe kwarg mapping verified against installed faster-whisper 1.2.1 where 'auto' is accepted verbatim for device and compute_type, full generator drain, EngineNotAvailableError/ModelLoadError/TranscriptionFailedError wrapping), and a registry (get_engine/create_engine/available_engines). 25 offline tests via injected fake faster_whisper module.",
+  "files": [
+    "src/transcriber/engines/__init__.py",
+    "src/transcriber/engines/base.py",
+    "src/transcriber/engines/mock.py",
+    "src/transcriber/engines/faster_whisper.py",
+    "tests/test_engines.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/engines tests/test_engines.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_engines.py",
+  "gate_exit": 0
+}

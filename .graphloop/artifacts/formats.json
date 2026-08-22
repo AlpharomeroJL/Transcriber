@@ -1,0 +1,17 @@
+{
+  "node": "formats",
+  "summary": "Output formatter package src/transcriber/formats/: Formatter ABC (name/extension ClassVars, render() with \\n-only line endings and exactly one trailing newline) plus txt, srt, vtt, json, tsv, md formatters and a registry (FORMATTERS, get_formatter raising OutputError naming available formats, available_formats sorted). 33 tests: golden strings for a unicode 2-segment >1h fixture, per-format empty-transcript minimal output, registry hit/miss, trailing-newline contract, tsv tab/newline collapsing.",
+  "files": [
+    "src/transcriber/formats/__init__.py",
+    "src/transcriber/formats/base.py",
+    "src/transcriber/formats/txt.py",
+    "src/transcriber/formats/srt.py",
+    "src/transcriber/formats/vtt.py",
+    "src/transcriber/formats/json.py",
+    "src/transcriber/formats/tsv.py",
+    "src/transcriber/formats/md.py",
+    "tests/test_formats.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/formats tests/test_formats.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_formats.py",
+  "gate_exit": 0
+}
