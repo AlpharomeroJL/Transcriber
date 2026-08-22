@@ -1,0 +1,7 @@
+{
+  "node": "audio",
+  "summary": "Input discovery and validation: SUPPORTED_EXTENSIONS (12 audio + 8 video container suffixes), is_supported() case-insensitive suffix check, and collect_inputs() turning user paths into resolved, deduplicated, sorted media lists — missing paths raise AudioNotFoundError, explicit unsupported files raise UnsupportedFormatError listing formats, directory scans (flat or recursive) keep supported files and skip hidden entries, empty results raise. 38 offline tmp_path tests cover the full contract.",
+  "files": ["src/transcriber/audio.py", "tests/test_audio.py"],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/audio.py tests/test_audio.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_audio.py",
+  "gate_exit": 0
+}

@@ -1,0 +1,11 @@
+{
+  "node": "confer",
+  "summary": "Error taxonomy rooted at TranscriberError (ConfigError with optional .field, InputError/AudioNotFoundError/UnsupportedFormatError, EngineError/EngineNotAvailableError with pip-install-hint default message/ModelLoadError/TranscriptionFailedError, OutputError) and frozen slotted TranscriberConfig with __post_init__ validation naming the offending value, None-filtering replace(), from_env() over the 11 TRANSCRIBER_* vars (empty string means unset; parse and validation failures raise ConfigError naming the variable), plus KNOWN_MODELS/COMPUTE_TYPES/TASKS constants and is_known_model(). 102 offline deterministic tests cover defaults, every validation failure, replace filtering/unknown keys, env happy/sad paths incl. case-insensitive bool coercion and unset-vs-empty.",
+  "files": [
+    "src/transcriber/errors.py",
+    "src/transcriber/config.py",
+    "tests/test_config.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/errors.py src/transcriber/config.py tests/test_config.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_config.py",
+  "gate_exit": 0
+}

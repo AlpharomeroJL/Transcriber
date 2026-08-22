@@ -1,0 +1,12 @@
+{
+  "node": "core",
+  "summary": "Transcript data model (frozen+slotted Word/Segment/Transcript with validation, text/is_empty/word_count, iteration, schema_version-1 to_dict/from_dict exact round-trip) and deterministic timestamp utilities (format_timestamp srt/vtt/clock with half-up ms rounding, carry, negative clamp, >=100h growth; humanised format_duration). 223 tests cover construction, validation errors, round-trips incl. JSON+unicode, and timestamp goldens (0, 59.9994 no-60000ms carry, 1h, 100h, negative clamp).",
+  "files": [
+    "src/transcriber/model.py",
+    "src/transcriber/timestamps.py",
+    "tests/test_model.py",
+    "tests/test_timestamps.py"
+  ],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/model.py src/transcriber/timestamps.py tests/test_model.py tests/test_timestamps.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_model.py tests/test_timestamps.py",
+  "gate_exit": 0
+}
