@@ -1,0 +1,7 @@
+{
+  "node": "pack",
+  "summary": "Finalised pyproject.toml metadata: readme=README.md, PEP 639 SPDX license wiring (License-Expression: MIT, deprecated License classifier dropped), GitHub Homepage/Repository/Issues/Changelog URLs, and an sdist exclude for .graphloop. Added scripts/smoke_install.sh: builds sdist+wheel, twine-checks both, verifies wheel ships transcriber/py.typed and none of .graphloop/tests/scripts and sdist ships LICENSE+README.md, then installs the wheel into a throwaway venv and exercises the installed CLI (--version matching the built version, --help, formats listing all six formats, mock-engine transcription of a generated WAV with output-file and content assertions). Gate prints PASS and exits 0.",
+  "files": ["pyproject.toml", "scripts/smoke_install.sh"],
+  "gate_cmd": "bash scripts/smoke_install.sh",
+  "gate_exit": 0
+}

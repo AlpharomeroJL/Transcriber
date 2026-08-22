@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "transcriber-cli"
 dynamic = ["version"]
 description = "Local-first, privacy-preserving transcription of audio and video: a polished CLI and typed Python library."
+readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -22,12 +23,14 @@ keywords = [
   "audio",
   "video",
 ]
+# No "License ::" classifier: `license = "MIT"` above is a PEP 639 SPDX expression
+# (emitted as License-Expression), and PyPI rejects pairing it with the deprecated
+# license classifiers.
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Console",
   "Intended Audience :: Developers",
   "Intended Audience :: End Users/Desktop",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
@@ -53,6 +56,12 @@ dev = [
   "twine",
 ]
 
+[project.urls]
+Homepage = "https://github.com/AlpharomeroJL/Transcriber"
+Repository = "https://github.com/AlpharomeroJL/Transcriber"
+Issues = "https://github.com/AlpharomeroJL/Transcriber/issues"
+Changelog = "https://github.com/AlpharomeroJL/Transcriber/blob/main/CHANGELOG.md"
+
 [project.scripts]
 transcriber = "transcriber.cli:main"
 
@@ -61,6 +70,10 @@ path = "src/transcriber/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/transcriber"]
+
+[tool.hatch.build.targets.sdist]
+# Ship sources, tests, and docs — not the campaign scheduling machinery.
+exclude = [".graphloop"]
 
 [tool.ruff]
 line-length = 100
