@@ -1,6 +1,6 @@
 {
   "campaign": "transcriber-1.0",
-  "updated": "2026-08-22T12:35:23Z",
+  "updated": "2026-08-22T12:45:01Z",
   "nodes": {
     "bootstrap": {
       "status": "done",
@@ -80,8 +80,14 @@
       "reason": null
     },
     "pipeline": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        {
+          "cmd": ".venv/bin/ruff check src/transcriber/pipeline.py tests/test_pipeline.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_pipeline.py",
+          "exit": 0,
+          "utc": "2026-08-22T12:45:01Z"
+        }
+      ],
       "reason": null
     },
     "cli": {
@@ -155,6 +161,14 @@
       ],
       "utc": "2026-08-22T12:35:23Z",
       "note": "six output formatters + registry; engine ABC, faster-whisper (lazy), mock"
+    },
+    {
+      "n": 5,
+      "nodes": [
+        "pipeline"
+      ],
+      "utc": "2026-08-22T12:45:01Z",
+      "note": "Transcriber facade: batch, events, atomic writes, error isolation"
     }
   ]
 }

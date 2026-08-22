@@ -1,0 +1,7 @@
+{
+  "node": "pipeline",
+  "summary": "Pipeline facade shipped: Transcriber (config-or-injected engine, transcribe_file raising on failure, transcribe_batch with collect_inputs discovery, up-front OutputError fail-fast on unknown/empty formats and uncreatable output_dir, per-file TranscriberError/OSError isolation with unexpected exceptions propagating, 1-based file_started/file_finished/file_failed PipelineEvents, close()), frozen FileResult/BatchResult (ok/error counts, all_ok, exit_code 0/1) and UTF-8 temp-then-rename atomic writes with no-clobber overwrite policy and documented later-duplicate-stem-fails collision handling. 48 offline MockEngine/tmp_path tests cover exact output paths and contents, FAIL isolation, overwrite refuse/replace, output_dir creation, duplicate stems, event ordering/totals/identity, format fail-fast, and atomicity via monkeypatched formatter raises.",
+  "files": ["src/transcriber/pipeline.py", "tests/test_pipeline.py"],
+  "gate_cmd": ".venv/bin/ruff check src/transcriber/pipeline.py tests/test_pipeline.py && .venv/bin/mypy src && .venv/bin/pytest tests/test_pipeline.py",
+  "gate_exit": 0
+}
